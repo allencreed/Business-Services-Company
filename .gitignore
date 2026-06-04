@@ -32,3 +32,5 @@ npm-debug.log*
 
 # Convex local backend
 vendor-dashboard/.convex/
+
+.vercel

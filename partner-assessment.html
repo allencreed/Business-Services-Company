@@ -1520,19 +1520,44 @@
                 submitBtn.classList.add('loading');
                 submitBtn.disabled = true;
 
-                // Simulate submission
-                setTimeout(() => {
-                    // Generate reference number
-                    const refNum = 'REF-2026-' + String(Math.floor(Math.random() * 9999)).padStart(4, '0');
-                    document.getElementById('refNumber').textContent = refNum;
+                // Build email body
+                var refNum = 'REF-2026-' + String(Math.floor(Math.random() * 9999)).padStart(4, '0');
+                var body = 'Partner Assessment Form - ' + refNum + '\n';
+                body += '================================\n\n';
 
-                    // Hide form, show success
-                    form.style.display = 'none';
-                    successMessage.classList.add('visible');
+                body += 'CONTACT INFORMATION\n';
+                body += 'Name: ' + document.getElementById('fullName').value + '\n';
+                body += 'Company: ' + document.getElementById('company').value + '\n';
+                body += 'Email: ' + document.getElementById('email').value + '\n';
+                body += 'Phone: ' + document.getElementById('phone').value + '\n\n';
 
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                }, 2000);
+                body += 'PROPERTY DETAILS\n';
+                body += 'Address: ' + document.getElementById('address').value + '\n';
+                body += 'Property Type: ' + document.getElementById('propertyType').value + '\n\n';
+
+                body += 'MAINTENANCE NEEDS\n';
+                var services = Array.from(document.querySelectorAll('input[name="services"]:checked')).map(function(cb) { return cb.value; }).join(', ');
+                body += 'Services Needed: ' + services + '\n';
+                var urgency = document.querySelector('input[name="urgency"]:checked');
+                body += 'Urgency: ' + (urgency ? urgency.value : '') + '\n\n';
+
+                body += 'TIMELINE\n';
+                body += 'Start Date: ' + document.getElementById('startDate').value + '\n';
+                var flexible = document.querySelector('input[name="flexible"]:checked');
+                body += 'Flexible: ' + (flexible ? flexible.value : '') + '\n\n';
+
+                body += 'DETAILS\n';
+                body += 'Description: ' + document.getElementById('description').value + '\n';
+                body += 'Budget: ' + document.getElementById('budget').value + '\n';
+
+                var subject = encodeURIComponent('Partner Assessment - ' + refNum);
+                window.location.href = 'mailto:sheldon.rollins@icloud.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+
+                // Show success
+                document.getElementById('refNumber').textContent = refNum;
+                form.style.display = 'none';
+                successMessage.classList.add('visible');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
