@@ -48,6 +48,65 @@
             margin: 0 auto;
         }
 
+        .form-welcome {
+            margin-top: 20px !important;
+            font-size: 15px !important;
+            line-height: 1.6;
+            max-width: 640px !important;
+        }
+
+        .required-star {
+            color: #cd2026;
+        }
+
+        .progress-wrapper {
+            max-width: 800px;
+            margin: 24px auto 0;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .progress-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #0071bc, #02bfe7);
+            border-radius: 4px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .progress-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #112e51;
+            white-space: nowrap;
+            min-width: 120px;
+            text-align: right;
+        }
+
         .form-container {
             max-width: 800px;
             margin: 0 auto;
@@ -272,6 +331,15 @@
         <div class="form-page-header">
             <h1>Vendor Pre-Qualification Form</h1>
             <p>Subcontractor Pre-Qualification for Commercial Projects &mdash; Imperium Infrastructure Partners</p>
+            <p class="form-welcome">Thank you for your interest in joining our vendor network. Please complete all sections below so we can properly evaluate your qualifications. Fields marked with <span class="required-star">*</span> are required.</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-wrapper">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0% Complete</span>
         </div>
 
         <!-- Form -->
@@ -562,6 +630,22 @@
                 tradeSection.classList.remove('visible');
             }
         });
+
+        // Progress tracking
+        function updateProgress() {
+            var fields = document.querySelectorAll('#vendorForm input, #vendorForm textarea, #vendorForm select');
+            var total = fields.length;
+            var filled = 0;
+            for (var i = 0; i < total; i++) {
+                if (fields[i].value.trim()) filled++;
+            }
+            var pct = total > 0 ? Math.round((filled / total) * 100) : 0;
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('progressText').textContent = pct + '% Complete';
+        }
+
+        document.getElementById('vendorForm').addEventListener('input', updateProgress);
+        document.getElementById('vendorForm').addEventListener('change', updateProgress);
 
         document.getElementById('vendorForm').addEventListener('submit', function(e) {
             e.preventDefault();
