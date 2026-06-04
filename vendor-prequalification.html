@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Pre-Qualification Form | Imperium Infrastructure Partners | Atlanta, GA</title>
+    <meta name="description" content="Subcontractor pre-qualification form for commercial property maintenance vendors. Imperium Infrastructure Partners, Atlanta, GA.">
+    <link rel="canonical" href="https://www.imperiuminfra.com/vendor-prequalification.html">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Imperium Infrastructure Partners",
+        "telephone": "+14043027038",
+        "email": "info@imperiuminfra.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "125 Brown Street",
+            "addressLocality": "Atlanta",
+            "addressRegion": "GA",
+            "postalCode": "30349",
+            "addressCountry": "US"
+        }
+    }
+    </script>
+    <style>
+        .form-page-header {
+            background: #112e51;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .form-page-header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .form-page-header p {
+            font-size: 16px;
+            color: #c8d6e5;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .form-section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #112e51;
+            margin-bottom: 24px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #0071bc;
+            display: inline-block;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 15px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .required::after {
+            content: " *";
+            color: #d32f2f;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            font-family: 'Source Sans Pro', sans-serif;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            background: #fff;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0071bc;
+            box-shadow: 0 0 0 3px rgba(0, 113, 188, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .trade-section {
+            display: none;
+            background: #f0f4f8;
+            padding: 24px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            border-left: 4px solid #F2B33D;
+        }
+
+        .trade-section.visible {
+            display: block;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 24px 16px;
+            }
+
+            .form-page-header {
+                padding: 30px 16px;
+            }
+
+            .form-page-header h1 {
+                font-size: 22px;
+            }
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: #0071bc;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: 'Source Sans Pro', sans-serif;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 30px;
+        }
+
+        .submit-btn:hover {
+            background: #205493;
+        }
+
+        .field-hint {
+            font-size: 13px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .error-msg {
+            color: #d32f2f;
+            font-size: 13px;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group.error input,
+        .form-group.error select,
+        .form-group.error textarea {
+            border-color: #d32f2f;
+        }
+
+        .form-group.error .error-msg {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-main">
+            <div class="header-left">
+                <a href="index.html" class="site-logo">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="5" width="50" height="50" rx="4" fill="#112e51"/>
+                        <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
+                        <circle cx="30" cy="32" r="8" fill="#ffffff"/>
+                        <path d="M30 26V38M24 32H36" stroke="#112e51" stroke-width="2"/>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="logo-main">Imperium Infrastructure Partners</span>
+                        <span class="logo-sub">Building Maintenance & Facility Solutions</span>
+                    </div>
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="tel:4043027038" class="header-contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    (404) 302-7038
+                </a>
+                <a href="index.html#contact" class="btn-header">Request Quote</a>
+                <a href="vendor-prequalification.html" class="btn-vendor">Become a Vendor</a>
+                <a href="partner-assessment.html" class="btn-partner">Become a Partner</a>
+            </div>
+        </div>
+        <nav class="site-nav">
+            <div class="container nav-inner">
+                <ul class="nav-list">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="index.html#industries" class="nav-link">Industries</a></li>
+                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                    <li><a href="index.html#why-us" class="nav-link">Why Choose Us</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="index.html">Home</a>
+                    <span class="breadcrumb-sep">/</span>
+                    <span>Vendor Pre-Qualification</span>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Page Header -->
+        <div class="form-page-header">
+            <h1>Vendor Pre-Qualification Form</h1>
+            <p>Subcontractor Pre-Qualification for Commercial Projects &mdash; Imperium Infrastructure Partners</p>
+        </div>
+
+        <!-- Form -->
+        <div class="form-container">
+            <form id="vendorForm">
+                <!-- Trade Selection -->
+                <div class="form-section">
+                    <div class="form-section-title">Trade Selection</div>
+                    <div class="form-group">
+                        <label for="trade" class="required">Select Your Trade</label>
+                        <select id="trade" name="trade" required>
+                            <option value="">-- Select Trade --</option>
+                            <option value="Striping">Striping</option>
+                            <option value="Painting">Painting</option>
+                            <option value="HVAC">HVAC</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <div class="error-msg">Please select your trade.</div>
+                    </div>
+                </div>
+
+                <!-- Company & Contact Info -->
+                <div class="form-section">
+                    <div class="form-section-title">Company & Contact Information</div>
+                    <div class="contact-grid">
+                        <div class="form-group">
+                            <label for="companyName" class="required">Company Name</label>
+                            <input type="text" id="companyName" name="companyName" required>
+                            <div class="error-msg">Company name is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactName" class="required">Contact Name</label>
+                            <input type="text" id="contactName" name="contactName" required>
+                            <div class="error-msg">Contact name is required.</div>
+                        </div>
+                    </div>
+                    <div class="contact-grid">
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-msg">Valid email is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <div class="error-msg">Phone number is required.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Qualifications -->
+                <div class="form-section">
+                    <div class="form-section-title">General Qualifications</div>
+
+                    <div class="form-group">
+                        <label for="q1" class="required">1. Are you properly licensed for the scopes of work you perform in the states/counties we operate in? (Please list license numbers and expiration dates.)</label>
+                        <textarea id="q1" name="q1" required placeholder="List your licenses, states, and expiration dates..."></textarea>
+                        <div class="error-msg">This field is required.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q2">2. Provide your current insurance certificate. Do you carry general liability, workers' compensation, and commercial auto? What are the policy limits, and can you name us as additional insured?</label>
+                        <textarea id="q2" name="q2" placeholder="Describe your insurance coverage..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q3">3. How many years have you been in business specifically performing your trade on commercial projects, not residential?</label>
+                        <textarea id="q3" name="q3" placeholder="Years of commercial experience..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q4">4. What is the smallest and largest project you're willing to take on (by dollar value)? Do you have a maximum number of concurrent projects you can handle without affecting quality or schedule?</label>
+                        <textarea id="q4" name="q4" placeholder="Project size range and capacity..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q5">5. What is your typical service radius? Are you willing and able to mobilize for projects outside that radius, and how do you charge for travel/mobilization?</label>
+                        <textarea id="q5" name="q5" placeholder="Service radius and mobilization details..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q6">6. What percentage of your work is performed by your direct W-2 employees versus subcontracted labor? When do you subcontract, and how do you vet those partners?</label>
+                        <textarea id="q6" name="q6" placeholder="Employee vs subcontractor breakdown..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q7">7. What is your EMR (Experience Modification Rate) for the last three years? Can you provide your OSHA 300 logs? Do you have a written safety manual and dedicated safety officer?</label>
+                        <textarea id="q7" name="q7" placeholder="EMR history and safety documentation..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q8">8. Provide at least three commercial client references from the past 24 months, including project descriptions, contract values, and a point of contact we can call.</label>
+                        <textarea id="q8" name="q8" placeholder="Reference 1: Name, project, value, contact&#10;Reference 2: ...&#10;Reference 3: ..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q9">9. Without sharing sensitive details, can you confirm you have the working capital or line of credit to fund 30&ndash;60 days of materials and labor before receiving our standard payment? May we request a bank reference or vendor credit references?</label>
+                        <textarea id="q9" name="q9" placeholder="Financial capacity confirmation..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q10">10. What is your single-project and aggregate bonding capacity, if any? Are you able to secure payment and performance bonds when required?</label>
+                        <textarea id="q10" name="q10" placeholder="Bonding capacity details..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q11">11. What is your standard workmanship warranty period, and what is specifically excluded? Walk us through exactly what happens when a callback or warranty claim is made after project completion.</label>
+                        <textarea id="q11" name="q11" placeholder="Warranty period and callback process..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q12">12. Do you own the major equipment needed for your trade, or do you rely heavily on rentals? How do you handle material procurement&mdash;do you have established supplier relationships with guaranteed pricing windows?</label>
+                        <textarea id="q12" name="q12" placeholder="Equipment ownership and procurement process..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q13">13. Describe your process for identifying, documenting, pricing, and getting approval for change orders mid-project. How do you handle a disagreement if we can't agree on a change order cost?</label>
+                        <textarea id="q13" name="q13" placeholder="Change order process..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q14">14. Who will be our single point of contact day-to-day? What tools or software do you use for scheduling, documentation, and daily reporting (if any)?</label>
+                        <textarea id="q14" name="q14" placeholder="Point of contact and tools used..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q15">15. What are your standard payment terms? Have you ever filed a mechanics lien or payment bond claim, and if so, what was the outcome?</label>
+                        <textarea id="q15" name="q15" placeholder="Payment terms and lien history..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Uncommon Insight Questions -->
+                <div class="form-section">
+                    <div class="form-section-title">Uncommon Insight Questions</div>
+
+                    <div class="form-group">
+                        <label for="q16">16. If a major material price jumps 30% between bid and execution, and the contract hasn't accounted for escalation, how do you propose handling it&mdash;before the problem hits the field?</label>
+                        <textarea id="q16" name="q16" placeholder="Your approach to material price escalation..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q17">17. What's the worst project you've ever been involved in, and looking back, what was your team's share of the responsibility for what went wrong?</label>
+                        <textarea id="q17" name="q17" placeholder="Describe the situation and lessons learned..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q18">18. How do you measure your own performance internally? What one number or metric do you track most closely to know if a project was successful for your company?</label>
+                        <textarea id="q18" name="q18" placeholder="Key performance metrics..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q19">19. If a general contractor or project owner calls you tomorrow and says "we have a serious quality issue that's clearly your fault," walk me through the first three things that happen inside your company before you return that call.</label>
+                        <textarea id="q19" name="q19" placeholder="Your internal response process..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="q20">20. What percentage of your revenue last year came from clients you'd done multiple projects with? And what's the average length of your client relationships?</label>
+                        <textarea id="q20" name="q20" placeholder="Repeat business percentage and relationship length..."></textarea>
+                    </div>
+                </div>
+
+                <!-- Trade-Specific Questions -->
+                <div id="tradeSection" class="trade-section">
+                    <div class="form-section-title">Trade-Specific Questions</div>
+                    <div id="tradeQuestions"></div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit via Email</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="50" height="50" rx="4" fill="#205493"/>
+                            <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
+                            <circle cx="30" cy="32" r="8" fill="#ffffff"/>
+                        </svg>
+                        <div>
+                            <span class="footer-title">Imperium Infrastructure Partners</span>
+                            <span class="footer-subtitle">Building Maintenance & Facility Solutions</span>
+                        </div>
+                    </a>
+                    <p>Simplifying commercial property maintenance through trusted vendor coordination and professional service.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Parking Lot Services</a></li>
+                        <li><a href="index.html#services">Exterior Cleaning</a></li>
+                        <li><a href="index.html#services">Safety & Compliance</a></li>
+                        <li><a href="index.html#services">Vendor Coordination</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#industries">Industries</a></li>
+                        <li><a href="index.html#why-us">Why Choose Us</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:4043027038">(404) 302-7038</a></li>
+                        <li><a href="mailto:info@imperiuminfra.com">info@imperiuminfra.com</a></li>
+                        <li>125 Brown Street</li>
+                        <li>Atlanta, GA 30349</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Imperium Infrastructure Partners. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        var tradeQuestions = {
+            Striping: [
+                { id: 'ts1', label: 'Which striping materials do you regularly install (thermoplastic, waterborne paint, epoxy, preformed tape), and do you own the application equipment for each?' },
+                { id: 'ts2', label: 'Do you handle layout and design in\u2011house using CAD or GPS layout tools, or do you work exclusively from provided plans?' },
+                { id: 'ts3', label: 'When performing work in live traffic or at night, what is your specific traffic\u2011control plan, and are you certified for MOT (Maintenance of Traffic) per state requirements?' }
+            ],
+            Painting: [
+                { id: 'ts1', label: 'Are you certified or extensively experienced with any specialty coatings (e.g., intumescent fireproofing, epoxy flooring, anti\u2011graffiti, high\u2011heat coatings)?' },
+                { id: 'ts2', label: 'What surface preparation methods do you perform with your own crews (sandblasting, power washing, chemical stripping), and how do you handle hazardous waste containment?' },
+                { id: 'ts3', label: 'When working adjacent to occupied or sensitive buildings, how do you manage overspray, odor, and environmental compliance?' }
+            ],
+            HVAC: [
+                { id: 'ts1', label: 'Do you have in\u2011house engineering capability for duct sizing and load calculations, or do you install strictly from stamped engineered drawings?' },
+                { id: 'ts2', label: 'What is your procedure for refrigerant recovery and leak\u2011rate tracking, and can you provide your EPA Section 608 certification number?' }
+            ],
+            Other: [
+                { id: 'ts1', label: 'Please describe your trade and any relevant capabilities, certifications, and equipment.', type: 'textarea-large' }
+            ]
+        };
+
+        var tradeSelect = document.getElementById('trade');
+        var tradeSection = document.getElementById('tradeSection');
+        var tradeQuestionsDiv = document.getElementById('tradeQuestions');
+
+        tradeSelect.addEventListener('change', function() {
+            var selectedTrade = this.value;
+            tradeQuestionsDiv.innerHTML = '';
+
+            if (selectedTrade && tradeQuestions[selectedTrade]) {
+                tradeSection.classList.add('visible');
+                var questions = tradeQuestions[selectedTrade];
+                for (var i = 0; i < questions.length; i++) {
+                    var q = questions[i];
+                    var div = document.createElement('div');
+                    div.className = 'form-group';
+
+                    var label = document.createElement('label');
+                    label.setAttribute('for', q.id);
+                    label.textContent = q.label;
+                    div.appendChild(label);
+
+                    var textarea = document.createElement('textarea');
+                    textarea.id = q.id;
+                    textarea.name = q.id;
+                    textarea.placeholder = 'Your response...';
+                    if (q.type === 'textarea-large') {
+                        textarea.style.minHeight = '150px';
+                    }
+                    div.appendChild(textarea);
+                    tradeQuestionsDiv.appendChild(div);
+                }
+            } else {
+                tradeSection.classList.remove('visible');
+            }
+        });
+
+        document.getElementById('vendorForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var requiredFields = [
+                { id: 'trade', name: 'Trade' },
+                { id: 'companyName', name: 'Company Name' },
+                { id: 'contactName', name: 'Contact Name' },
+                { id: 'email', name: 'Email' },
+                { id: 'phone', name: 'Phone' },
+                { id: 'q1', name: 'Licensing' }
+            ];
+
+            var allValid = true;
+            var firstInvalid = null;
+
+            for (var i = 0; i < requiredFields.length; i++) {
+                var field = requiredFields[i];
+                var el = document.getElementById(field.id);
+                var formGroup = el.closest('.form-group');
+
+                if (!el.value.trim()) {
+                    formGroup.classList.add('error');
+                    allValid = false;
+                    if (!firstInvalid) firstInvalid = el;
+                } else {
+                    formGroup.classList.remove('error');
+                }
+            }
+
+            if (!allValid) {
+                alert('Please fill in all required fields marked with *');
+                firstInvalid.focus();
+                return;
+            }
+
+            var trade = document.getElementById('trade').value;
+            var companyName = document.getElementById('companyName').value;
+            var contactName = document.getElementById('contactName').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            var body = 'VENDOR PRE-QUALIFICATION FORM\n';
+            body += '================================\n\n';
+            body += 'TRADE: ' + trade + '\n';
+            body += 'COMPANY: ' + companyName + '\n';
+            body += 'CONTACT: ' + contactName + '\n';
+            body += 'EMAIL: ' + email + '\n';
+            body += 'PHONE: ' + phone + '\n\n';
+
+            body += 'GENERAL QUALIFICATIONS\n';
+            body += '----------------------\n\n';
+
+            var generalQuestions = [
+                '1. Licensing & State/County Compliance',
+                '2. Insurance Certificate & Coverage Limits',
+                '3. Years of Commercial Experience',
+                '4. Project Size Range & Capacity',
+                '5. Service Radius & Mobilization',
+                '6. W-2 Employees vs Subcontracted Labor',
+                '7. EMR History & Safety Documentation',
+                '8. Commercial Client References (Past 24 Months)',
+                '9. Working Capital / Line of Credit Confirmation',
+                '10. Bonding Capacity',
+                '11. Workmanship Warranty & Callback Process',
+                '12. Equipment Ownership & Material Procurement',
+                '13. Change Order Process',
+                '14. Point of Contact & Tools/Software',
+                '15. Payment Terms & Lien History'
+            ];
+
+            for (var j = 0; j < generalQuestions.length; j++) {
+                var qId = 'q' + (j + 1);
+                var answer = document.getElementById(qId).value.trim();
+                body += generalQuestions[j] + ':\n';
+                body += (answer || 'Not provided') + '\n\n';
+            }
+
+            body += 'UNCOMMON INSIGHT QUESTIONS\n';
+            body += '--------------------------\n\n';
+
+            var insightQuestions = [
+                '16. Material Price Escalation Handling',
+                '17. Worst Project & Team Responsibility',
+                '18. Internal Performance Metrics',
+                '19. Quality Issue Response Process',
+                '20. Repeat Business & Client Relationship Length'
+            ];
+
+            for (var k = 0; k < insightQuestions.length; k++) {
+                var qId = 'q' + (k + 16);
+                var answer = document.getElementById(qId).value.trim();
+                body += insightQuestions[k] + ':\n';
+                body += (answer || 'Not provided') + '\n\n';
+            }
+
+            body += 'TRADE-SPECIFIC QUESTIONS (' + trade + ')\n';
+            body += '---------------------------------------\n\n';
+
+            if (tradeQuestions[trade]) {
+                var tQuestions = tradeQuestions[trade];
+                for (var m = 0; m < tQuestions.length; m++) {
+                    var tId = tQuestions[m].id;
+                    var tAnswer = document.getElementById(tId).value.trim();
+                    body += tQuestions[m].label + '\n';
+                    body += (tAnswer || 'Not provided') + '\n\n';
+                }
+            }
+
+            body += '================================\n';
+            body += 'Submitted by: ' + contactName + ' | ' + companyName + '\n';
+            body += 'Date: ' + new Date().toLocaleDateString() + '\n';
+
+            var subject = encodeURIComponent('Vendor Pre-Qualification Form - ' + companyName);
+            var mailtoLink = 'mailto:info@imperiuminfra.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+
+            window.location.href = mailtoLink;
+        });
+    </script>
+</body>
+</html>
