@@ -62,10 +62,16 @@
         .progress-wrapper {
             max-width: 800px;
             margin: 24px auto 0;
-            padding: 0 20px;
+            padding: 12px 20px;
             display: flex;
             align-items: center;
             gap: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .progress-bar-bg {
