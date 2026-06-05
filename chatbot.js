@@ -2,7 +2,7 @@
   var CONFIG = {
     brand: 'Imperium Infrastructure Partners',
     email: 'sheldon.rollins@icloud.com',
-    phone: '(404) 302-7038',
+    phone: '(470) 427-4128',
     address: '125 Brown Street, Atlanta, GA 30349',
     hours: 'Mon–Fri 8am–5pm',
     area: 'Southeast USA (GA, AL, TN, NC, SC, FL)',
@@ -521,7 +521,20 @@
     body += 'Page: ' + state.page + '\n';
     body += 'Timestamp: ' + new Date().toLocaleString() + '\n';
 
-    var mailto = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Chatbot Lead - ' + (state.collected.name || 'Website Visitor')) + '&body=' + encodeURIComponent(body);
+    var payload = {
+      subject: 'Chatbot Lead - ' + (state.collected.name || 'Website Visitor'),
+      body: body,
+      replyTo: state.collected.email || '',
+      formType: 'chatbot'
+    };
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function() {
+      var mailto = 'mailto:' + CONFIG.email + '?subject=' + encodeURIComponent('Chatbot Lead - ' + (state.collected.name || 'Website Visitor')) + '&body=' + encodeURIComponent(body);
+      window.location.href = mailto;
+    });
     var img = new Image();
     img.style.display = 'none';
     img.src = 'https://www.google-analytics.com/collect?v=1&tid=G-' + CONFIG.gaProperty + '&cid=' + Date.now() + '&t=event&ec=chatbot&ea=lead&el=' + encodeURIComponent(state.collected.intent || 'unknown');

@@ -14,7 +14,7 @@
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "Imperium Infrastructure Partners",
-        "telephone": "+14043027038",
+        "telephone": "+14704274128",
         "email": "info@imperiuminfra.com",
         "address": {
             "@type": "PostalAddress",
@@ -1550,8 +1550,20 @@
                 body += 'Description: ' + document.getElementById('description').value + '\n';
                 body += 'Budget: ' + document.getElementById('budget').value + '\n';
 
-                var subject = encodeURIComponent('Partner Assessment - ' + refNum);
-                window.location.href = 'mailto:sheldon.rollins@icloud.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+                var subject = 'Partner Assessment - ' + refNum;
+                var payload = {
+                    subject: subject,
+                    body: body,
+                    replyTo: document.getElementById('email').value || '',
+                    formType: 'partner'
+                };
+                fetch('/api/send-email', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).catch(function() {
+                    window.location.href = 'mailto:sheldon.rollins@icloud.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                });
 
                 // Show success
                 document.getElementById('refNumber').textContent = refNum;

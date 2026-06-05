@@ -20,6 +20,7 @@
   "homepage": "https://github.com/allencreed/Business-Services-Company#readme",
   "dependencies": {
     "@playwright/test": "^1.60.0",
-    "playwright": "^1.60.0"
+    "playwright": "^1.60.0",
+    "resend": "^6.12.4"
   }
 }
