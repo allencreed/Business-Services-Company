@@ -79,25 +79,36 @@ async function run() {
   });
 
   // ===== MAINTENANCE SERVICES FLOW =====
-  async function navigateMaintenanceFlow(page, propertyType, serviceType) {
-    await page.goto(BASE, { waitUntil: 'networkidle' });
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: propertyType }).click();
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: serviceType }).click();
-    await page.waitForTimeout(1500);
+  async function clickQR(page, text) {
+    const btn = page.locator('.ichat-qr-btn', { hasText: text });
+    await btn.waitFor({ state: 'visible', timeout: 5000 });
+    await btn.click();
+  }
+
+  async function typeAndSend(page, text) {
+    await page.locator('#ichat-input').waitFor({ state: 'visible', timeout: 3000 });
+    await page.locator('#ichat-input').fill(text);
+    await page.locator('#ichat-send').click();
+  }
+
+  async function waitForNewQR(page, minCount) {
+    await page.waitForTimeout(500);
+    for (let i = 0; i < 20; i++) {
+      const count = await page.locator('.ichat-qr-btn').count();
+      if (count >= minCount) return count;
+      await page.waitForTimeout(250);
+    }
+    return await page.locator('.ichat-qr-btn').count();
   }
 
   await test('Maintenance flow - intent selection shows property options', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
-    await page.waitForTimeout(1500);
+    await clickQR(page, 'Maintenance');
+    const count = await waitForNewQR(page, 4);
+    if (count < 4) throw new Error('Expected property options, got ' + count);
     const opts = await page.locator('.ichat-qr-btn').allTextContents();
-    const hasCommercial = opts.some(t => t.includes('Commercial'));
-    if (!hasCommercial) throw new Error('Property type options missing: ' + JSON.stringify(opts));
+    if (!opts.some(t => t.includes('Commercial'))) throw new Error('Missing Commercial option: ' + JSON.stringify(opts));
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('property')) throw new Error('Bot should ask about property: ' + lastMsg);
   });
@@ -105,12 +116,11 @@ async function run() {
   await test('Maintenance flow - property selection shows service options', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Commercial' }).click();
-    await page.waitForTimeout(1500);
-    const svcCount = await page.locator('.ichat-qr-btn').count();
-    if (svcCount < 3) throw new Error('Not enough service options: ' + svcCount);
+    await clickQR(page, 'Maintenance');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Commercial');
+    const count = await waitForNewQR(page, 4);
+    if (count < 4) throw new Error('Expected service options, got ' + count);
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('service')) throw new Error('Bot should ask about services: ' + lastMsg);
   });
@@ -118,15 +128,12 @@ async function run() {
   await test('Maintenance flow - service selection asks for name', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Office' }).click();
-    await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Painting' }).click();
-    await page.waitForTimeout(1500);
-    const input = page.locator('#ichat-input');
-    await input.fill('Test User');
-    await page.locator('#ichat-send').click();
+    await clickQR(page, 'Maintenance');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Office');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Painting');
+    await typeAndSend(page, 'Test User');
     await page.waitForTimeout(1500);
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('email')) throw new Error('Bot should ask for email: ' + lastMsg);
@@ -135,25 +142,17 @@ async function run() {
   await test('Maintenance flow - full lead collection through schedule', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
+    await clickQR(page, 'Maintenance');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Retail');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'HVAC');
+    await typeAndSend(page, 'Jane Test');
     await page.waitForTimeout(1200);
-    await page.locator('.ichat-qr-btn', { hasText: 'Retail' }).click();
+    await typeAndSend(page, 'jane@test.com');
     await page.waitForTimeout(1200);
-    await page.locator('.ichat-qr-btn', { hasText: 'HVAC' }).click();
-    await page.waitForTimeout(1200);
-    // name
-    await page.locator('#ichat-input').fill('Jane Test');
-    await page.locator('#ichat-send').click();
-    await page.waitForTimeout(1200);
-    // email
-    await page.locator('#ichat-input').fill('jane@test.com');
-    await page.locator('#ichat-send').click();
-    await page.waitForTimeout(1200);
-    // phone
-    await page.locator('#ichat-input').fill('404-555-1234');
-    await page.locator('#ichat-send').click();
+    await typeAndSend(page, '404-555-1234');
     await page.waitForTimeout(2000);
-    // Should show schedule options
     const qrCount = await page.locator('.ichat-qr-btn').count();
     if (qrCount === 0) throw new Error('No schedule options after lead collection');
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
@@ -165,37 +164,30 @@ async function run() {
   await test('Maintenance flow - schedule a call completes', async () => {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
-    await page.locator('.ichat-qr-btn', { hasText: 'Maintenance' }).click();
+    await clickQR(page, 'Maintenance');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Industrial');
+    await waitForNewQR(page, 4);
+    await clickQR(page, 'Parking');
+    await typeAndSend(page, 'Bob Test');
     await page.waitForTimeout(1200);
-    await page.locator('.ichat-qr-btn', { hasText: 'Industrial' }).click();
+    await typeAndSend(page, 'bob@test.com');
     await page.waitForTimeout(1200);
-    await page.locator('.ichat-qr-btn', { hasText: 'Parking' }).click();
-    await page.waitForTimeout(1200);
-    await page.locator('#ichat-input').fill('Bob Test');
-    await page.locator('#ichat-send').click();
-    await page.waitForTimeout(1200);
-    await page.locator('#ichat-input').fill('bob@test.com');
-    await page.locator('#ichat-send').click();
-    await page.waitForTimeout(1200);
-    await page.locator('#ichat-input').fill('555-0100');
-    await page.locator('#ichat-send').click();
+    await typeAndSend(page, '555-0100');
     await page.waitForTimeout(1500);
-    // Schedule a call
     const scheduleBtn = page.locator('.ichat-qr-btn', { hasText: 'Schedule' });
-    if (await scheduleBtn.isVisible()) {
+    if (await scheduleBtn.isVisible().catch(() => false)) {
       await scheduleBtn.click();
       await page.waitForTimeout(1200);
-      await page.locator('#ichat-input').fill('tomorrow');
-      await page.locator('#ichat-send').click();
+      await typeAndSend(page, 'tomorrow');
       await page.waitForTimeout(1200);
-      await page.locator('.ichat-qr-btn', { hasText: 'Morning' }).click();
-      await page.waitForTimeout(1200);
+      await clickQR(page, 'Morning');
+      await page.waitForTimeout(1000);
       const finalMsg = await page.locator('.ichat-msg').last().textContent();
       if (!finalMsg.toLowerCase().includes('reach out') && !finalMsg.toLowerCase().includes('confirm')) {
         throw new Error('No confirmation: ' + finalMsg);
       }
     }
-    // If schedule button not present, the flow still completed
   });
 
   // ===== PARTNER FLOW =====

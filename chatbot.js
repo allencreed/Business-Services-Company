@@ -100,6 +100,7 @@
   }
 
   function minimize() {
+    state.isOpen = false;
     state.isMinimized = true;
     panel.classList.remove('open');
     bubble.style.display = 'flex';
