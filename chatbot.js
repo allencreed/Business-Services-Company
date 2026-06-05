@@ -218,9 +218,12 @@
     var hrs = isBusinessHours();
 
     if (!hrs) {
-      say("Hi! Thanks for visiting " + CONFIG.brand + ". 👋\n\nWe're currently outside our business hours (" + CONFIG.hours + " ET). Leave us a message and we'll get back to you first thing!");
-      renderInputField();
-      state.step = 'question';
+      var afterHoursGreeting = getTimeGreeting() + "! Thanks for visiting " + CONFIG.brand + ". 👋\n\nWe're currently outside our business hours (" + CONFIG.hours + " ET), but I can still help! Leave a message and we'll get back to you first thing tomorrow.";
+      setImmediate(function () {
+        addMessage(afterHoursGreeting, 'bot');
+        renderQuickReplies(['I Need Maintenance Services', 'I Want to Become a Partner', 'I Have a Question']);
+        state.step = 'intent';
+      });
       return;
     }
 

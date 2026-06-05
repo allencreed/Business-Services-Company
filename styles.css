@@ -1780,6 +1780,8 @@ ul {
     font-size: 15px;
     line-height: 1.5;
     color: #1b1b1b;
+    width: 0;
+    height: 0;
 }
 
 #imperium-chat-widget.closed {
