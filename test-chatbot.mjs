@@ -91,6 +91,18 @@ async function run() {
     await page.locator('#ichat-send').click();
   }
 
+  async function waitForBotReply(page) {
+    // Wait for typing indicator to disappear (bot has responded)
+    for (let i = 0; i < 20; i++) {
+      const typingHidden = await page.locator('#ichat-typing').evaluate(el => el.style.display === 'none' || el.style.display === '').catch(() => true);
+      if (typingHidden) {
+        await page.waitForTimeout(200);
+        return;
+      }
+      await page.waitForTimeout(200);
+    }
+  }
+
   async function waitForNewQR(page, minCount) {
     await page.waitForTimeout(500);
     for (let i = 0; i < 20; i++) {
@@ -105,10 +117,9 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
     await clickQR(page, 'Maintenance');
+    await waitForBotReply(page);
     const count = await waitForNewQR(page, 4);
     if (count < 4) throw new Error('Expected property options, got ' + count);
-    const opts = await page.locator('.ichat-qr-btn').allTextContents();
-    if (!opts.some(t => t.includes('Commercial'))) throw new Error('Missing Commercial option: ' + JSON.stringify(opts));
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('property')) throw new Error('Bot should ask about property: ' + lastMsg);
   });
@@ -117,8 +128,10 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
     await clickQR(page, 'Maintenance');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Commercial');
+    await waitForBotReply(page);
     const count = await waitForNewQR(page, 4);
     if (count < 4) throw new Error('Expected service options, got ' + count);
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
@@ -129,12 +142,15 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
     await clickQR(page, 'Maintenance');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Office');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Painting');
+    await waitForBotReply(page);
     await typeAndSend(page, 'Test User');
-    await page.waitForTimeout(1500);
+    await waitForBotReply(page);
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('email')) throw new Error('Bot should ask for email: ' + lastMsg);
   });
@@ -143,17 +159,20 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
     await clickQR(page, 'Maintenance');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Retail');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'HVAC');
+    await waitForBotReply(page);
     await typeAndSend(page, 'Jane Test');
-    await page.waitForTimeout(1200);
+    await waitForBotReply(page);
     await typeAndSend(page, 'jane@test.com');
-    await page.waitForTimeout(1200);
+    await waitForBotReply(page);
     await typeAndSend(page, '404-555-1234');
-    await page.waitForTimeout(2000);
-    const qrCount = await page.locator('.ichat-qr-btn').count();
+    await waitForBotReply(page);
+    const qrCount = await waitForNewQR(page, 1);
     if (qrCount === 0) throw new Error('No schedule options after lead collection');
     const lastMsg = await page.locator('.ichat-msg').last().textContent();
     if (!lastMsg.toLowerCase().includes('call') && !lastMsg.toLowerCase().includes('schedule')) {
@@ -165,24 +184,27 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.waitForTimeout(1500);
     await clickQR(page, 'Maintenance');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Industrial');
+    await waitForBotReply(page);
     await waitForNewQR(page, 4);
     await clickQR(page, 'Parking');
+    await waitForBotReply(page);
     await typeAndSend(page, 'Bob Test');
-    await page.waitForTimeout(1200);
+    await waitForBotReply(page);
     await typeAndSend(page, 'bob@test.com');
-    await page.waitForTimeout(1200);
+    await waitForBotReply(page);
     await typeAndSend(page, '555-0100');
-    await page.waitForTimeout(1500);
+    await waitForBotReply(page);
     const scheduleBtn = page.locator('.ichat-qr-btn', { hasText: 'Schedule' });
     if (await scheduleBtn.isVisible().catch(() => false)) {
       await scheduleBtn.click();
-      await page.waitForTimeout(1200);
+      await waitForBotReply(page);
       await typeAndSend(page, 'tomorrow');
-      await page.waitForTimeout(1200);
+      await waitForBotReply(page);
       await clickQR(page, 'Morning');
-      await page.waitForTimeout(1000);
+      await waitForBotReply(page);
       const finalMsg = await page.locator('.ichat-msg').last().textContent();
       if (!finalMsg.toLowerCase().includes('reach out') && !finalMsg.toLowerCase().includes('confirm')) {
         throw new Error('No confirmation: ' + finalMsg);

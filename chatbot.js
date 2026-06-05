@@ -250,7 +250,6 @@
   function say(text) {
     showTyping(function () {
       addMessage(text, 'bot');
-      state.step = 'waiting';
     });
   }
 
@@ -397,7 +396,7 @@
       return;
     }
 
-    if (state.step === 'question' || state.step === 'waiting') {
+    if (state.step === 'question') {
       state.collected.question = text;
       // Try AI if key available
       if (CONFIG.groqKey) {
