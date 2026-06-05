@@ -92,14 +92,19 @@ async function run() {
   }
 
   async function waitForBotReply(page) {
-    // Wait for typing indicator to disappear (bot has responded)
+    // Wait for typing indicator to appear and then disappear
     for (let i = 0; i < 20; i++) {
-      const typingHidden = await page.locator('#ichat-typing').evaluate(el => el.style.display === 'none' || el.style.display === '').catch(() => true);
-      if (typingHidden) {
+      const display = await page.locator('#ichat-typing').evaluate(el => el.style.display).catch(() => 'none');
+      if (display === 'flex') break;
+      await page.waitForTimeout(100);
+    }
+    for (let i = 0; i < 30; i++) {
+      const display = await page.locator('#ichat-typing').evaluate(el => el.style.display).catch(() => 'none');
+      if (display === 'none' || display === '') {
         await page.waitForTimeout(200);
         return;
       }
-      await page.waitForTimeout(200);
+      await page.waitForTimeout(150);
     }
   }
 

@@ -306,6 +306,11 @@
       state.step = 'schedule_date';
       say("Great! What day works best for you?");
       setImmediate(function () { renderInputField(); });
+    } else if (state.step === 'schedule_time') {
+      state.collected.preferredTime = opt;
+      state.step = 'farewell';
+      say("Perfect! We'll have someone reach out to confirm your appointment for " + (state.collected.preferredDate || 'soon') + " (" + opt + "). Thanks for reaching out, " + (state.collected.name || '') + "! 😊");
+      sendCollected();
     } else if (opt === 'I Have a Question First') {
       state.step = 'question';
       state.collected.intent = 'question';
