@@ -1767,3 +1767,301 @@ ul {
         height: 300px;
     }
 }
+
+/* ============================================
+   CHATBOT WIDGET
+   ============================================ */
+#imperium-chat-widget {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #1b1b1b;
+}
+
+#imperium-chat-widget.closed {
+    display: none;
+}
+
+/* Bubble */
+#ichat-bubble {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #112e51;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 2;
+}
+#ichat-bubble:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+#ichat-bubble.pulse {
+    animation: ichat-pulse 1s ease;
+}
+@keyframes ichat-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(17,46,81,0.4); }
+    70% { box-shadow: 0 0 0 16px rgba(17,46,81,0); }
+    100% { box-shadow: 0 0 0 0 rgba(17,46,81,0); }
+}
+
+/* Panel */
+#ichat-panel {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 380px;
+    height: 600px;
+    max-height: 80vh;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.95) translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    overflow: hidden;
+}
+#ichat-panel.open {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Header */
+#ichat-header {
+    background: #112e51;
+    color: #fff;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+#ichat-header-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#ichat-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #0071bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+}
+#ichat-title {
+    font-weight: 700;
+    font-size: 15px;
+}
+#ichat-status {
+    font-size: 12px;
+    color: #9ee7f7;
+}
+#ichat-header-actions {
+    display: flex;
+    gap: 4px;
+}
+#ichat-header-actions button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    opacity: 0.8;
+    transition: opacity 0.2s, background 0.2s;
+}
+#ichat-header-actions button:hover {
+    opacity: 1;
+    background: rgba(255,255,255,0.12);
+}
+
+/* Messages */
+#ichat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: #f8f9fa;
+}
+.ichat-msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    animation: ichat-fadeIn 0.25s ease;
+}
+@keyframes ichat-fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.ichat-bot {
+    background: #e9ecef;
+    color: #1b1b1b;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+.ichat-user {
+    background: #0071bc;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+/* Quick Replies */
+.ichat-quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 4px 16px 16px;
+    background: #f8f9fa;
+    animation: ichat-fadeIn 0.3s ease;
+}
+.ichat-qr-btn {
+    background: #fff;
+    border: 1.5px solid #0071bc;
+    color: #0071bc;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+.ichat-qr-btn:hover {
+    background: #0071bc;
+    color: #fff;
+}
+.ichat-qr-btn:focus-visible {
+    outline: 2px solid #F2B33D;
+    outline-offset: 2px;
+}
+
+/* Typing Indicator */
+#ichat-typing {
+    padding: 4px 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #f8f9fa;
+}
+#ichat-typing .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #5b616b;
+    animation: ichat-bounce 1.4s ease infinite;
+}
+#ichat-typing .dot:nth-child(2) { animation-delay: 0.2s; }
+#ichat-typing .dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes ichat-bounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+    40% { transform: translateY(-8px); opacity: 1; }
+}
+
+/* Input Area */
+#ichat-input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-top: 1px solid #e4e4e4;
+    background: #fff;
+    flex-shrink: 0;
+}
+#ichat-input {
+    flex: 1;
+    border: 1px solid #d6d7d9;
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+#ichat-input:focus {
+    border-color: #0071bc;
+    box-shadow: 0 0 0 2px rgba(0,113,188,0.15);
+}
+#ichat-send {
+    background: #0071bc;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background 0.2s, transform 0.15s;
+    flex-shrink: 0;
+}
+#ichat-send:hover {
+    background: #205493;
+}
+#ichat-send:active {
+    transform: scale(0.92);
+}
+
+/* Footer */
+#ichat-footer {
+    text-align: center;
+    font-size: 11px;
+    color: #5b616b;
+    padding: 6px 12px;
+    border-top: 1px solid #e4e4e4;
+    background: #f8f9fa;
+    flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #imperium-chat-widget {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #ichat-panel {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+        transform: translateY(100%);
+        opacity: 1;
+    }
+    #ichat-panel.open {
+        transform: translateY(0);
+    }
+    #ichat-bubble {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+    }
+}
