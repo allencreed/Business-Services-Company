@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Imperium Infrastructure <onboarding@resend.dev>',
+      from: 'Imperium Infrastructure <info@imperiuminfrastructurepartners.com>',
       to: ['sheldon.rollins@icloud.com'],
       replyTo: replyTo || 'sheldon.rollins@icloud.com',
       subject: subject,

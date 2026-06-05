@@ -192,7 +192,7 @@ async function run() {
     await page.locator('.site-footer').scrollIntoViewIfNeeded();
     const body = await page.locator('.site-footer').textContent();
     if (!body.includes('(470) 427-4128')) throw new Error('Footer missing phone');
-    if (!body.includes('info@imperiuminfra.com')) throw new Error('Footer missing email');
+    if (!body.includes('info@imperiuminfrastructurepartners.com')) throw new Error('Footer missing email');
     if (!body.includes('125 Brown Street')) throw new Error('Footer missing address');
   });
 
