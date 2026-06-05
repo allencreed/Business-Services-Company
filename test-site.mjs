@@ -70,7 +70,7 @@ async function run() {
     const phone = page.locator('.header-contact');
     await phone.scrollIntoViewIfNeeded();
     const text = await phone.textContent();
-    if (!text.includes('(404) 302-7038')) throw new Error('Phone not found: ' + text);
+    if (!text.includes('(470) 427-4128')) throw new Error('Phone not found: ' + text);
   });
 
   await test('Header Become a Vendor link works', async () => {
@@ -191,7 +191,7 @@ async function run() {
     await page.goto(BASE, { waitUntil: 'networkidle' });
     await page.locator('.site-footer').scrollIntoViewIfNeeded();
     const body = await page.locator('.site-footer').textContent();
-    if (!body.includes('(404) 302-7038')) throw new Error('Footer missing phone');
+    if (!body.includes('(470) 427-4128')) throw new Error('Footer missing phone');
     if (!body.includes('info@imperiuminfra.com')) throw new Error('Footer missing email');
     if (!body.includes('125 Brown Street')) throw new Error('Footer missing address');
   });
