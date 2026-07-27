@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Imperium Infrastructure Partners</title>
+    <meta name="description" content="Insights on commercial property maintenance, network infrastructure, building automation, and AI infrastructure for Southeast property managers. One call handles everything.">
+    <meta name="keywords" content="commercial property maintenance blog, network infrastructure, building automation, BAS, property management Southeast, AI infrastructure">
+    <link rel="canonical" href="https://www.imperiuminfrastructurepartners.com/blog.html">
+    <meta property="og:title" content="Blog | Imperium Infrastructure Partners">
+    <meta property="og:description" content="Practical insights on facilities maintenance, network infrastructure, building automation, and AI infrastructure for Southeast property managers.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.imperiuminfrastructurepartners.com/blog.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&q=80">
+    <meta property="og:locale" content="en_US">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'><rect x='5' y='5' width='50' height='50' rx='4' fill='%23112e51'/><path d='M30 12L15 22V42L30 52L45 42V22L30 12Z' fill='%230071bc'/><circle cx='30' cy='32' r='8' fill='%23ffffff'/></svg>">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Imperium Infrastructure Partners Blog",
+        "url": "https://www.imperiuminfrastructurepartners.com/blog.html",
+        "description": "Insights on commercial property maintenance, network infrastructure, building automation, and AI infrastructure for Southeast property managers.",
+        "isPartOf": { "@type": "WebSite", "name": "Imperium Infrastructure Partners", "url": "https://www.imperiuminfrastructurepartners.com" }
+    }
+    </script>
+    <style>
+        /* Blog-specific styling — reuses site palette and class names */
+        .blog-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 90px 0 64px;
+            text-align: center;
+        }
+        .blog-hero .section-label {
+            color: var(--accent-light);
+        }
+        .blog-hero h1 {
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+        .blog-hero p {
+            color: var(--gray-light);
+            font-size: 1.125rem;
+            max-width: 640px;
+            margin: 0 auto;
+        }
+        .blog-section {
+            padding: 64px 0;
+            background: var(--bg-light);
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 28px;
+        }
+        .blog-card {
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        .blog-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        .blog-card .service-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-meta {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .blog-card h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            line-height: 1.35;
+        }
+        .blog-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+        .blog-readmore {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: auto;
+        }
+        .blog-readmore:hover {
+            color: var(--primary);
+        }
+        .blog-readmore svg {
+            transition: transform 0.2s ease;
+        }
+        .blog-readmore:hover svg {
+            transform: translateX(4px);
+        }
+        .posts-section {
+            padding: 64px 0;
+            background: var(--white);
+        }
+        .post-article {
+            max-width: 780px;
+            margin: 0 auto 56px;
+        }
+        .post-article:last-child {
+            margin-bottom: 0;
+        }
+        .post-article .post-meta {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+        .post-article h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+        .post-article h3 {
+            font-size: 1.35rem;
+            margin: 28px 0 12px;
+            color: var(--primary);
+        }
+        .post-article p {
+            color: var(--gray-dark);
+            margin-bottom: 18px;
+            line-height: 1.8;
+        }
+        .post-article ul {
+            margin: 0 0 18px 1.25rem;
+            color: var(--gray-dark);
+        }
+        .post-article li {
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+        .post-article .post-divider {
+            height: 1px;
+            background: var(--border);
+            border: none;
+            margin: 48px 0;
+        }
+        .back-to-top {
+            display: inline-block;
+            margin-top: 8px;
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .back-to-top:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-main">
+            <div class="header-left">
+                <a href="index.html" class="site-logo">
+                    <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="5" y="5" width="50" height="50" rx="4" fill="#112e51"/>
+                        <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
+                        <circle cx="30" cy="32" r="8" fill="#ffffff"/>
+                        <path d="M30 26V38M24 32H36" stroke="#112e51" stroke-width="2"/>
+                    </svg>
+                    <div class="logo-text">
+                        <span class="logo-main">Imperium Infrastructure Partners</span>
+                        <span class="logo-sub">Building Maintenance and Facility Solutions</span>
+                    </div>
+                </a>
+            </div>
+            <div class="header-right">
+                <a href="tel:4704274128" class="header-contact">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    (470) 427-4128
+                </a>
+                <a href="#contact" class="btn-header">Schedule Assessment</a>
+                <a href="vendor-prequalification.html" class="btn-vendor">Become a Vendor</a>
+                <a href="vendor-prequalification.html" class="btn-partner">Become a Partner</a>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="menu-bar"></span>
+                    <span class="menu-bar"></span>
+                    <span class="menu-bar"></span>
+                </button>
+            </div>
+        </div>
+        <nav class="site-nav">
+            <div class="container nav-inner">
+                <ul class="nav-list">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#services" class="nav-link">Services</a></li>
+                    <li><a href="index.html#industries" class="nav-link">Industries</a></li>
+                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
+                    <li><a href="index.html#why-us" class="nav-link">Why Choose Us</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="nav-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                </div>
+            </div>
+        </nav>
+        <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+            <div class="container">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html#home" class="mobile-nav-link">Home</a></li>
+                    <li><a href="index.html#services" class="mobile-nav-link">Services</a></li>
+                    <li><a href="index.html#industries" class="mobile-nav-link">Industries</a></li>
+                    <li><a href="index.html#about" class="mobile-nav-link">About Us</a></li>
+                    <li><a href="index.html#why-us" class="mobile-nav-link">Why Choose Us</a></li>
+                    <li><a href="blog.html" class="mobile-nav-link">Blog</a></li>
+                    <li><a href="index.html#contact" class="mobile-nav-link">Contact</a></li>
+                    <li><a href="vendor-prequalification.html" class="mobile-nav-link">Become a Vendor</a></li>
+                    <li><a href="tel:4704274128" class="mobile-nav-link mobile-phone">(470) 427-4128</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Blog Hero -->
+        <section class="blog-hero">
+            <div class="container">
+                <span class="section-label">Insights &amp; Field Notes</span>
+                <h1>The Imperium Blog</h1>
+                <p>Practical guidance on keeping commercial properties running — from coordinated maintenance to network, automation, and AI infrastructure across the Southeast.</p>
+            </div>
+        </section>
+
+        <!-- Blog Post Cards -->
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-label">Latest Articles</span>
+                    <h2>What We're Talking About</h2>
+                    <p class="section-desc">Two reads to help property managers plan smarter and consolidate vendors.</p>
+                </div>
+
+                <div class="blog-grid">
+                    <article class="blog-card" data-aos="fade-up">
+                        <div class="service-body">
+                            <span class="blog-meta">July 24, 2026 · Facilities Strategy</span>
+                            <h3>Why Network Infrastructure Belongs in Your Facilities Maintenance Plan</h3>
+                            <p>Structured cabling, fiber, and low-voltage systems aren't IT extras — they're physical infrastructure that ages, fails, and needs the same coordinated care as your roof and HVAC.</p>
+                            <a href="#post-1" class="blog-readmore">Read more
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-body">
+                            <span class="blog-meta">July 17, 2026 · Building Automation</span>
+                            <h3>Building Automation 101: What Southeast Property Managers Should Know</h3>
+                            <p>BAS, lighting control, access, and energy monitoring — how a single smart platform cuts costs and why it fits the "one call handles everything" model.</p>
+                            <a href="#post-2" class="blog-readmore">Read more
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Posts -->
+        <section class="posts-section">
+            <div class="container">
+                <article class="post-article" id="post-1">
+                    <span class="post-meta">July 24, 2026 · Facilities Strategy</span>
+                    <h2>Why Network Infrastructure Belongs in Your Facilities Maintenance Plan</h2>
+
+                    <p>Most property managers think of network infrastructure as an IT problem — something the tenant's tech team owns. But the cabling in your walls, the fiber runs between buildings, and the low-voltage wiring that powers cameras, badge readers, and Wi-Fi access points are physical assets. They get installed once, forgotten, and then fail at the worst possible moment. Treating them as facilities infrastructure — not IT overhead — is one of the highest-leverage shifts a Southeast property manager can make.</p>
+
+                    <h3>It's All Physical Plant</h3>
+                    <p>Structured cabling, fiber backbone, and low-voltage wiring degrade just like any other building system. Terminations loosen, jackets get nicked during other trades' work, and patch panels become a tangle that no one wants to touch. When your HVAC contractor pulls a permit and opens a wall, they can accidentally disturb a data run that feeds your access control. Coordinating these trades under one maintenance plan is exactly how you avoid that domino effect.</p>
+
+                    <h3>Three Systems Worth Formalizing</h3>
+                    <ul>
+                        <li><strong>Structured cabling &amp; network closets:</strong> Documented, labeled, and on a cleaning schedule so moves, adds, and changes don't become emergencies.</li>
+                        <li><strong>Fiber &amp; data runs between buildings:</strong> Especially relevant for campuses and multi-building retail centers across Atlanta, Birmingham, and Nashville.</li>
+                        <li><strong>Low-voltage for security and access:</strong> Badge readers, surveillance, and intercoms all ride on the same physical plant your network depends on.</li>
+                    </ul>
+
+                    <h3>The Coordinated Advantage</h3>
+                    <p>Our <strong>Network Infrastructure</strong> service line approaches cabling and low-voltage the same way we approach parking striping or HVAC: as a coordinated, vetted trade executed on a schedule you control. When a network closet build-out and a lighting upgrade happen in the same work order, you get one point of contact, one invoice, and far less disruption to tenants.</p>
+
+                    <p>This also sets the stage for the newer service lines property teams are asking about. Reliable structured cabling is the foundation for <strong>Building Automation &amp; Controls</strong> — sensors and controllers need a clean, monitored backbone — and it's the prerequisite for on-site <strong>AI Infrastructure</strong>, where edge compute and GPU deployments assume serious, well-documented connectivity.</p>
+
+                    <p>The takeaway is simple: stop treating the network as someone else's problem. Put it on the maintenance plan, document it, and let one call handle the trades. That's how "one call handles everything" actually scales from a tagline into a facility strategy.</p>
+
+                    <a href="#top" class="back-to-top">&uarr; Back to articles</a>
+                </article>
+
+                <hr class="post-divider">
+
+                <article class="post-article" id="post-2">
+                    <span class="post-meta">July 17, 2026 · Building Automation</span>
+                    <h2>Building Automation 101: What Southeast Property Managers Should Know</h2>
+
+                    <p>If you manage commercial property in the Southeast, your buildings are working harder than they should. Georgia and Alabama summers push HVAC systems to their limit, lighting runs all day in lobbies and parking decks, and access points multiply with every new tenant. Building automation is how you get that load under control — and it's far more approachable than most property teams assume.</p>
+
+                    <h3>What "BAS" Actually Means</h3>
+                    <p>A Building Automation System (BAS), sometimes called an Energy Management System (EMS), is a network of controllers and sensors that monitors and adjusts your building's mechanical and electrical systems. Think of it as a central nervous system: thermostats, dampers, meters, and relays report in, and a platform makes decisions — cooling a floor before occupants arrive, dimming lights when a space is empty, locking a door after hours.</p>
+
+                    <h3>The Four Pillars</h3>
+                    <ul>
+                        <li><strong>BAS / EMS:</strong> The control platform that ties mechanical systems together and surfaces data you can act on.</li>
+                        <li><strong>Lighting control:</strong> Scheduling, occupancy sensing, and daylight harvesting that trims a meaningful slice off the electric bill.</li>
+                        <li><strong>Access &amp; security:</strong> Badge and reader systems integrated with the same controllers, so access events and HVAC can coordinate.</li>
+                        <li><strong>Energy monitoring:</strong> Sub-metering that shows exactly where kWh go — the first step to cutting them.</li>
+                    </ul>
+
+                    <h3>Why It Fits the "One Call" Model</h3>
+                    <p>Traditionally, a property manager sources a controls integrator, a lighting vendor, a security installer, and an energy consultant — four relationships, four invoices, four points of failure. Our <strong>Building Automation &amp; Controls</strong> service line collapses that into a single coordinated engagement. We scope the BAS, sequence the trades, and keep one accountable point of contact from design through commissioning.</p>
+
+                    <p>For Southeast portfolios, the payoff is concrete: lower peak-demand charges during summer, fewer after-hours complaints, and a documented energy baseline you can take to ownership or tenants. And because the automated backbone rides on solid <strong>Network Infrastructure</strong>, the two service lines reinforce each other.</p>
+
+                    <h3>Where AI Infrastructure Enters</h3>
+                    <p>Once you're collecting building data, the logical next step is acting on it. That's where <strong>AI Infrastructure</strong> comes in — on-prem or edge compute that runs optimization models, predicts equipment failure from meter trends, and turns your BAS from reactive to predictive. You don't need a data center; a single managed edge node can deliver a lot.</p>
+
+                    <p>Start small: pick one building, deploy lighting control and energy monitoring, and prove the savings. Then expand. With one call handling the automation, the security, and the connectivity, building a smarter portfolio stops being a science project and becomes routine maintenance.</p>
+
+                    <a href="#top" class="back-to-top">&uarr; Back to articles</a>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="5" width="50" height="50" rx="4" fill="#205493"/>
+                            <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
+                            <circle cx="30" cy="32" r="8" fill="#ffffff"/>
+                        </svg>
+                        <div>
+                            <span class="footer-title">Imperium Infrastructure Partners</span>
+                            <span class="footer-subtitle">Building Maintenance and Facility Solutions</span>
+                        </div>
+                    </a>
+                    <p>Simplifying commercial property maintenance through trusted vendor coordination and professional service.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Parking Lot Services</a></li>
+                        <li><a href="index.html#services">Pavement Maintenance</a></li>
+                        <li><a href="index.html#services">Commercial Painting</a></li>
+                        <li><a href="index.html#services">Safety &amp; Compliance</a></li>
+                        <li><a href="index.html#services">Vendor Coordination</a></li>
+                        <li><a href="index.html#services">Network Infrastructure</a></li>
+                        <li><a href="index.html#services">Building Automation &amp; Controls</a></li>
+                        <li><a href="index.html#services">AI Infrastructure</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#industries">Industries</a></li>
+                        <li><a href="index.html#why-us">Why Choose Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:4704274128">(470) 427-4128</a></li>
+                        <li><a href="mailto:info@imperiuminfrastructurepartners.com">info@imperiuminfrastructurepartners.com</a></li>
+                        <li>125 Brown Street</li>
+                        <li>Atlanta, GA 30349</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Service Area</h4>
+                    <ul>
+                        <li>Georgia</li>
+                        <li>Alabama</li>
+                        <li>Tennessee</li>
+                        <li>North Carolina</li>
+                        <li>South Carolina</li>
+                        <li>Florida</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Imperium Infrastructure Partners. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Sticky header
+        window.addEventListener('scroll', function () {
+            var header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Hamburger menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+            var expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            this.classList.toggle('active');
+            document.getElementById('mobileNav').classList.toggle('open');
+            document.getElementById('mobileNav').setAttribute('aria-hidden', expanded);
+        });
+    </script>
+</body>
+</html>
