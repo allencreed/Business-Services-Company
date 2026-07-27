@@ -118,7 +118,7 @@
     <header class="site-header">
         <div class="container header-main">
             <div class="header-left">
-                <a href="#" class="site-logo">
+                <a href="#home" class="site-logo">
                     <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect x="5" y="5" width="50" height="50" rx="4" fill="#112e51"/>
                         <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
@@ -155,6 +155,7 @@
                     <li><a href="#about" class="nav-link">About Us</a></li>
                     <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
                 </ul>
                 <div class="nav-search">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
@@ -182,8 +183,10 @@
         <section id="home" class="hero-section">
             <div class="hero-bg"></div>
             <div class="hero-video-container">
-                <video id="heroVideo" autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80">
-                    <source src="headervid.mp4" type="video/mp4">
+                <video id="heroVideo" class="hero-video" autoplay muted loop playsinline preload="metadata"
+                    poster="videos/imperium-sizzle/assets/building.jpg"
+                    aria-hidden="true">
+                    <source src="videos/imperium-sizzle/renders/sizzle.mp4" type="video/mp4">
                 </video>
             </div>
             <div class="hero-overlay"></div>
@@ -194,6 +197,10 @@
                     <p>Through our network of trusted service providers, we help businesses quickly secure the expertise they need to get projects done right.</p>
                     <div class="hero-actions">
                         <a href="#contact" class="btn-hero-secondary">Schedule Assessment</a>
+                        <a href="tel:4704274128" class="btn-hero-phone">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            (470) 427-4128
+                        </a>
                     </div>
                 </div>
             </div>
@@ -228,13 +235,13 @@
                 <div class="section-header">
                     <span class="section-label">What We Do</span>
                     <h2>Comprehensive Property Services</h2>
-                    <p class="section-desc">From parking lot striping to commercial painting and HVAC, we coordinate it all.</p>
+                    <p class="section-desc">From parking lot striping and commercial painting to HVAC, network infrastructure, building automation, and AI infrastructure — we coordinate it all.</p>
                 </div>
                 
                 <div class="services-grid">
                     <article class="service-item" data-aos="fade-up">
                         <div class="service-img">
-                            <img src="compaintsr.jfif" alt="Commercial Painting">
+                            <img src="compaintsr.webp" alt="Commercial Painting">
                         </div>
                         <div class="service-body">
                             <h3>Commercial Painting</h3>
@@ -298,7 +305,7 @@
                     
                     <article class="service-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="service-img">
-                            <img src="Parkingsr.jfif" alt="Parking Lot Maintenance and Striping">
+                            <img src="Parkingsr.webp" alt="Parking Lot Maintenance and Striping">
                         </div>
                         <div class="service-body">
                             <h3>Parking Lot Maintenance and Striping</h3>
@@ -314,7 +321,7 @@
                     
                     <article class="service-item" data-aos="fade-up" data-aos-delay="500">
                         <div class="service-img">
-                            <img src="HVACsr.jfif" alt="HVAC Service and Repair">
+                            <img src="HVACsr.webp" alt="HVAC Service and Repair">
                         </div>
                         <div class="service-body">
                             <h3>HVAC Service and Repair</h3>
@@ -493,6 +500,7 @@
                         <cite>— Marcus T., Operations Lead, Nashville</cite>
                     </blockquote>
                 </div>
+                <p class="testimonials-note">Representative client feedback. Names changed for privacy.</p>
             </div>
         </section>
 
@@ -534,15 +542,15 @@
             <div class="container">
                 <div class="future-grid">
                     <div class="future-content">
-                        <span class="section-label light">Future Services</span>
+                        <span class="section-label light">More Services</span>
                         <h2>Ready to Expand</h2>
-                        <p>Our model is built for growth. As your trusted maintenance partner, we can coordinate additional services:</p>
+                        <p>Our model is built for growth. As your trusted maintenance partner, we can coordinate even more services on request:</p>
                         <div class="future-tags">
                             <span>Landscaping</span>
-                            <span>Janitorial</span>
                             <span>Lighting</span>
-                            <span>HVAC</span>
                             <span>Commercial Cleanup</span>
+                            <span>Roofing</span>
+                            <span>Pressure Washing</span>
                         </div>
                     </div>
                     <div class="future-box">
@@ -660,25 +668,34 @@
             </div>
             <div class="resources-grid">
                 <article class="resource-item" data-aos="fade-up">
-                    <div class="resource-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    </div>
-                    <h3>Parking Lot Maintenance Guide</h3>
-                    <p>When to stripe, repave, and repair — and how regular maintenance extends lot life.</p>
+                    <a class="resource-link" href="blog.html">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <h3>Parking Lot Maintenance Guide</h3>
+                        <p>When to stripe, repave, and repair — and how regular maintenance extends lot life.</p>
+                        <span class="resource-more">Read more →</span>
+                    </a>
                 </article>
                 <article class="resource-item" data-aos="fade-up" data-aos-delay="100">
-                    <div class="resource-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    </div>
-                    <h3>HVAC Preventive Maintenance Checklist</h3>
-                    <p>Seasonal tips to avoid breakdowns, improve efficiency, and extend equipment life.</p>
+                    <a class="resource-link" href="blog.html">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <h3>HVAC Preventive Maintenance Checklist</h3>
+                        <p>Seasonal tips to avoid breakdowns, improve efficiency, and extend equipment life.</p>
+                        <span class="resource-more">Read more →</span>
+                    </a>
                 </article>
                 <article class="resource-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="resource-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    </div>
-                    <h3>Vendor Coordination Best Practices</h3>
-                    <p>How a single-point-of-contact model saves time and reduces vendor management stress.</p>
+                    <a class="resource-link" href="blog.html">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                        </div>
+                        <h3>Vendor Coordination Best Practices</h3>
+                        <p>How a single-point-of-contact model saves time and reduces vendor management stress.</p>
+                        <span class="resource-more">Read more →</span>
+                    </a>
                 </article>
             </div>
         </div>
@@ -840,7 +857,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo">
+                    <a href="#home" class="footer-logo">
                         <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <rect x="5" y="5" width="50" height="50" rx="4" fill="#205493"/>
                             <path d="M30 12L15 22V42L30 52L45 42V22L30 12Z" fill="#0071bc"/>
@@ -857,14 +874,14 @@
                 <div class="footer-col">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#">Parking Lot Services</a></li>
-                        <li><a href="#">Pavement Maintenance</a></li>
-                        <li><a href="#">Commercial Painting</a></li>
-                        <li><a href="#">Safety & Compliance</a></li>
-                        <li><a href="#">Vendor Coordination</a></li>
-                        <li><a href="#">Network Infrastructure</a></li>
-                        <li><a href="#">Building Automation &amp; Controls</a></li>
-                        <li><a href="#">AI Infrastructure</a></li>
+                        <li><a href="#services">Parking Lot Services</a></li>
+                        <li><a href="#services">Pavement Maintenance</a></li>
+                        <li><a href="#services">Commercial Painting</a></li>
+                        <li><a href="#services">Safety & Compliance</a></li>
+                        <li><a href="#services">Vendor Coordination</a></li>
+                        <li><a href="#services">Network Infrastructure</a></li>
+                        <li><a href="#services">Building Automation &amp; Controls</a></li>
+                        <li><a href="#services">AI Infrastructure</a></li>
                     </ul>
                 </div>
                 
@@ -874,6 +891,7 @@
                         <li><a href="#about">About Us</a></li>
                         <li><a href="#industries">Industries</a></li>
                         <li><a href="#why-us">Why Choose Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>

@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <title>Imperium Infrastructure Partners — Hero Sizzle Reel</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+      :root {
+        --navy: #112e51;
+        --navy-mid: #205493;
+        --navy-deep: #0a1f38;
+        --blue: #0071bc;
+        --cyan: #02bfe7;
+        --paper: #ffffff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: #0a1f38;
+        color: #ffffff;
+        font-family: 'Source Sans Pro', 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      .clip { position: absolute; inset: 0; overflow: hidden; }
+
+      .fill { position: absolute; inset: 0; }
+      .bg-img {
+        position: absolute;
+        inset: -60px; /* clearance for ken-burns scale */
+        width: calc(100% + 120px);
+        height: calc(100% + 120px);
+        object-fit: cover;
+        display: block;
+      }
+      .serif { font-family: 'Merriweather', Georgia, serif; }
+      .kicker {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 700;
+        font-size: 24px;
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: var(--cyan);
+      }
+      .rule {
+        display: block;
+        height: 4px;
+        background: var(--cyan);
+        transform-origin: left center;
+      }
+      .ghost {
+        position: absolute;
+        font-family: 'Merriweather', Georgia, serif;
+        font-weight: 900;
+        color: #ffffff;
+        opacity: 0.06;
+        line-height: 0.85;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+      .edge-tag {
+        position: absolute;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 600;
+        font-size: 19px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .svc-row {
+        display: flex;
+        align-items: baseline;
+        gap: 26px;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      }
+      .svc-num {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.12em;
+        color: var(--cyan);
+        min-width: 52px;
+      }
+      .svc-name {
+        font-family: 'Merriweather', Georgia, serif;
+        font-weight: 700;
+        font-size: 40px;
+        color: #ffffff;
+      }
+      .photo-card {
+        position: absolute;
+        overflow: hidden;
+        border: 3px solid rgba(2, 191, 231, 0.55);
+        box-shadow: 0 30px 80px rgba(4, 12, 24, 0.65);
+      }
+      .photo-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .corner {
+        position: absolute;
+        width: 46px;
+        height: 46px;
+        border-color: rgba(2, 191, 231, 0.7);
+        border-style: solid;
+        border-width: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="imperium-sizzle"
+      data-start="0"
+      data-width="1920"
+      data-height="1080"
+      data-duration="16.5"
+      data-fps="30"
+    >
+      <!-- ============ TRACK 0 · BASE BACKDROP (whole reel) ============ -->
+      <section id="base" class="clip" data-start="0" data-duration="16.5" data-track-index="0">
+        <div class="fill" style="background: #0a1f38;"></div>
+        <div id="base-glow" class="fill" style="background: radial-gradient(1100px 700px at 30% 40%, rgba(32,84,147,0.55), rgba(10,31,56,0) 70%);"></div>
+      </section>
+
+      <!-- ============ SCENE 1 · OPENING (0 – 3.6s) ============ -->
+      <section id="s1" class="clip" data-start="0" data-duration="3.6" data-track-index="1">
+        <img id="s1-bg" class="bg-img" src="assets/building.jpg" alt="" />
+        <div class="fill" style="background: linear-gradient(100deg, rgba(10,31,56,0.96) 0%, rgba(17,46,81,0.82) 46%, rgba(17,46,81,0.30) 100%);"></div>
+        <div id="s1-glow" class="fill" style="background: radial-gradient(900px 640px at 22% 68%, rgba(0,113,188,0.38), rgba(0,113,188,0) 70%);"></div>
+        <div id="s1-ghost" class="ghost" style="font-size: 380px; bottom: -70px; right: -40px;">IMPERIUM</div>
+
+        <div id="s1-copy" style="position: absolute; left: 120px; top: 250px; width: 1150px;">
+          <div id="s1-kicker" class="kicker">Commercial Property Services</div>
+          <span id="s1-rule" class="rule" style="width: 150px; margin: 30px 0 38px;"></span>
+          <h1 id="s1-h1" class="serif" style="margin: 0; font-weight: 900; font-size: 108px; line-height: 1.06; letter-spacing: -0.03em;">
+            Your building runs on<br />a hundred moving parts.
+          </h1>
+          <p id="s1-sub" style="margin: 42px 0 0; font-weight: 300; font-size: 40px; color: rgba(255,255,255,0.88);">
+            We handle every one of them.
+          </p>
+        </div>
+
+        <div id="s1-chip" style="position: absolute; left: 120px; bottom: 96px; display: flex; align-items: center; gap: 22px;">
+          <span style="display:block; width: 14px; height: 14px; background: var(--cyan);"></span>
+          <span style="font-size: 24px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #fff;">9 service lines&nbsp;&nbsp;·&nbsp;&nbsp;1 point of contact</span>
+        </div>
+        <div id="s1-index" class="edge-tag" style="right: 64px; top: 50%; transform: rotate(90deg); transform-origin: center;">01 — Overview</div>
+      </section>
+
+      <!-- ============ SCENE 2 · FACILITY SERVICES (3.6 – 7.2s) ============ -->
+      <section id="s2" class="clip" data-start="3.6" data-duration="3.6" data-track-index="2">
+        <div class="fill" style="background: #112e51;"></div>
+        <div id="s2-glow" class="fill" style="background: radial-gradient(1000px 760px at 78% 30%, rgba(0,113,188,0.34), rgba(17,46,81,0) 70%);"></div>
+        <div id="s2-ghost" class="ghost" style="font-size: 560px; top: -110px; left: -30px; opacity: 0.05;">02</div>
+
+        <div id="s2-left" style="position: absolute; left: 120px; top: 130px; width: 880px;">
+          <div id="s2-kicker" class="kicker">02 — The Essentials</div>
+          <h2 id="s2-h2" class="serif" style="margin: 26px 0 34px; font-weight: 900; font-size: 84px; letter-spacing: -0.03em;">Facility Services</h2>
+          <div id="s2-list">
+            <div class="svc-row" id="s2-svc1"><span class="svc-num">/01</span><span class="svc-name">Commercial Painting</span></div>
+            <div class="svc-row" id="s2-svc2"><span class="svc-num">/02</span><span class="svc-name">Janitorial</span></div>
+            <div class="svc-row" id="s2-svc3"><span class="svc-num">/03</span><span class="svc-name">Parking Lot Striping</span></div>
+            <div class="svc-row" id="s2-svc4"><span class="svc-num">/04</span><span class="svc-name">Vendor Coordination</span></div>
+            <div class="svc-row" id="s2-svc5" style="border-bottom: 0;"><span class="svc-num">/05</span><span class="svc-name">Safety &amp; Compliance</span></div>
+          </div>
+        </div>
+
+        <span id="s2-divider" style="position: absolute; left: 1075px; top: 130px; display: block; width: 2px; height: 820px; background: rgba(2,191,231,0.4); transform-origin: top center;"></span>
+
+        <div id="s2-photo1" class="photo-card" style="left: 1150px; top: 120px; width: 650px; height: 420px;">
+          <img id="s2-photo1-img" src="assets/office.jpg" alt="" />
+        </div>
+        <div id="s2-photo2" class="photo-card" style="left: 1230px; top: 580px; width: 570px; height: 380px; border-color: rgba(255,255,255,0.35);">
+          <img id="s2-photo2-img" src="assets/cleaning.jpg" alt="" />
+        </div>
+        <div id="s2-cap" class="edge-tag" style="left: 1150px; bottom: 56px; color: rgba(2,191,231,0.85);">Day-one ready crews</div>
+      </section>
+
+      <!-- ============ SCENE 3 · BUILDING SYSTEMS (7.2 – 10.6s) ============ -->
+      <section id="s3" class="clip" data-start="7.2" data-duration="3.4" data-track-index="1">
+        <img id="s3-bg" class="bg-img" src="assets/network.jpg" alt="" />
+        <div class="fill" style="background: linear-gradient(80deg, rgba(10,31,56,0.97) 0%, rgba(10,31,56,0.88) 44%, rgba(17,46,81,0.35) 100%);"></div>
+        <div id="s3-glow" class="fill" style="background: radial-gradient(860px 620px at 82% 62%, rgba(2,191,231,0.20), rgba(10,31,56,0) 70%);"></div>
+        <div id="s3-ghost" class="ghost" style="font-size: 560px; bottom: -120px; right: -20px; opacity: 0.05;">03</div>
+
+        <div id="s3-copy" style="position: absolute; left: 120px; top: 176px; width: 1000px;">
+          <div id="s3-kicker" class="kicker">03 — Systems That Never Sleep</div>
+          <h2 id="s3-h2" class="serif" style="margin: 26px 0 0; font-weight: 900; font-size: 90px; line-height: 1.08; letter-spacing: -0.03em;">Building Systems,<br />kept online.</h2>
+          <div id="s3-svc1" style="margin-top: 56px; display: flex; gap: 26px; align-items: flex-start;">
+            <span style="display:block; width: 6px; height: 92px; background: var(--cyan); flex: none;"></span>
+            <div>
+              <div class="serif" style="font-weight: 700; font-size: 46px;">HVAC</div>
+              <div style="font-weight: 300; font-size: 28px; color: rgba(255,255,255,0.82); margin-top: 8px;">Preventive maintenance, repair &amp; replacement</div>
+            </div>
+          </div>
+          <div id="s3-svc2" style="margin-top: 36px; display: flex; gap: 26px; align-items: flex-start;">
+            <span style="display:block; width: 6px; height: 92px; background: var(--blue); flex: none;"></span>
+            <div>
+              <div class="serif" style="font-weight: 700; font-size: 46px;">Network Infrastructure</div>
+              <div style="font-weight: 300; font-size: 28px; color: rgba(255,255,255,0.82); margin-top: 8px;">Structured cabling, switching &amp; wireless</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="s3-node1" style="position: absolute; right: 320px; top: 190px; width: 18px; height: 18px; border-radius: 50%; background: var(--cyan);"></div>
+        <div id="s3-node2" style="position: absolute; right: 208px; top: 330px; width: 12px; height: 12px; border-radius: 50%; background: rgba(2,191,231,0.7);"></div>
+        <div id="s3-node3" style="position: absolute; right: 420px; bottom: 240px; width: 14px; height: 14px; border-radius: 50%; background: rgba(255,255,255,0.75);"></div>
+        <div id="s3-index" class="edge-tag" style="right: 64px; top: 50%; transform: rotate(90deg); transform-origin: center;">Uptime is the product</div>
+      </section>
+
+      <!-- ============ SCENE 4 · INTELLIGENT INFRASTRUCTURE (10.6 – 13.4s) ============ -->
+      <section id="s4" class="clip" data-start="10.6" data-duration="2.8" data-track-index="2">
+        <div class="fill" style="background: #0a1f38;"></div>
+        <div id="s4-glow" class="fill" style="background: radial-gradient(1000px 700px at 26% 34%, rgba(32,84,147,0.5), rgba(10,31,56,0) 72%);"></div>
+        <div id="s4-ghost" class="ghost" style="font-size: 560px; top: -100px; right: -40px; opacity: 0.05;">04</div>
+
+        <div id="s4-photo1" class="photo-card" style="left: 120px; top: 150px; width: 640px; height: 430px;">
+          <img id="s4-photo1-img" src="assets/automation.jpg" alt="" />
+        </div>
+        <div id="s4-photo2" class="photo-card" style="left: 210px; top: 620px; width: 560px; height: 330px; border-color: rgba(255,255,255,0.35);">
+          <img id="s4-photo2-img" src="assets/ai-server.jpg" alt="" />
+        </div>
+
+        <div id="s4-copy" style="position: absolute; left: 900px; top: 210px; width: 900px;">
+          <div id="s4-kicker" class="kicker">04 — The Next Layer</div>
+          <h2 id="s4-h2" class="serif" style="margin: 26px 0 0; font-weight: 900; font-size: 84px; line-height: 1.08; letter-spacing: -0.03em;">Smarter buildings,<br />built in.</h2>
+          <div class="svc-row" id="s4-svc1" style="margin-top: 44px;"><span class="svc-num">/08</span><span class="svc-name">Building Automation &amp; Controls</span></div>
+          <div class="svc-row" id="s4-svc2" style="border-bottom: 0;"><span class="svc-num">/09</span><span class="svc-name">AI Infrastructure</span></div>
+          <div id="s4-bars" style="margin-top: 52px; display: flex; gap: 14px; align-items: flex-end; height: 74px;">
+            <span style="display:block; width: 44px; height: 34px; background: rgba(2,191,231,0.35);"></span>
+            <span style="display:block; width: 44px; height: 52px; background: rgba(2,191,231,0.55);"></span>
+            <span style="display:block; width: 44px; height: 44px; background: rgba(0,113,188,0.75);"></span>
+            <span style="display:block; width: 44px; height: 68px; background: var(--cyan);"></span>
+            <span style="display:block; width: 44px; height: 58px; background: rgba(255,255,255,0.55);"></span>
+          </div>
+        </div>
+        <div id="s4-cap" class="edge-tag" style="left: 120px; bottom: 56px; color: rgba(2,191,231,0.85);">From boiler room to server room</div>
+      </section>
+
+      <!-- ============ SCENE 5 · LOGO LOCKUP (13.4 – 16.5s) ============ -->
+      <section id="s5" class="clip" data-start="13.4" data-duration="3.1" data-track-index="1">
+        <div class="fill" style="background: #0a1f38;"></div>
+        <img id="s5-bg" src="assets/building-commercial.jpg" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.10; display: block;" />
+        <div id="s5-glow" class="fill" style="background: radial-gradient(880px 620px at 50% 44%, rgba(0,113,188,0.4), rgba(10,31,56,0) 70%);"></div>
+
+        <div id="s5-lockup" style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+          <div id="s5-mark" style="width: 128px; height: 128px; border: 4px solid var(--cyan); display: grid; place-items: center; margin-bottom: 44px;">
+            <span class="serif" style="font-weight: 900; font-size: 66px; letter-spacing: 0.02em; color: #ffffff;">II</span>
+          </div>
+          <div id="s5-word" class="serif" style="font-weight: 900; font-size: 112px; letter-spacing: 0.01em; line-height: 1;">IMPERIUM</div>
+          <div id="s5-subword" style="margin-top: 20px; font-weight: 600; font-size: 30px; letter-spacing: 0.52em; text-transform: uppercase; color: rgba(255,255,255,0.85); text-indent: 0.52em;">Infrastructure Partners</div>
+          <span id="s5-rule" class="rule" style="width: 420px; margin: 46px auto 40px; transform-origin: center;"></span>
+          <div id="s5-tagline" class="serif" style="font-style: italic; font-weight: 400; font-size: 52px; color: var(--cyan);">One Call Handles Everything.</div>
+        </div>
+
+        <div id="s5-foot" class="edge-tag" style="left: 0; right: 0; bottom: 54px; text-align: center; color: rgba(255,255,255,0.66);">Painting · Safety · Vendors · Janitorial · Striping · HVAC · Network · Automation · AI</div>
+      </section>
+
+      <!-- ============ TRACK 3 · PERSISTENT HUD FRAME (whole reel) ============ -->
+      <section id="hud" class="clip" data-start="0" data-duration="16.5" data-track-index="3" data-layout-allow-overflow>
+        <span class="corner" id="hud-c1" style="left: 40px; top: 40px; border-left-width: 3px; border-top-width: 3px;"></span>
+        <span class="corner" id="hud-c2" style="right: 40px; top: 40px; border-right-width: 3px; border-top-width: 3px;"></span>
+        <span class="corner" id="hud-c3" style="left: 40px; bottom: 40px; border-left-width: 3px; border-bottom-width: 3px;"></span>
+        <span class="corner" id="hud-c4" style="right: 40px; bottom: 40px; border-right-width: 3px; border-bottom-width: 3px;"></span>
+        <div id="hud-brand" class="edge-tag" style="left: 120px; top: 52px; color: rgba(255,255,255,0.6);">Imperium Infrastructure Partners</div>
+        <div id="hud-reel" class="edge-tag" style="right: 120px; top: 52px; color: #a9e9f7;">IIP · Sizzle 2026</div>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+      const TOTAL = 16.5;
+      // finite repeat helper (floor, never ceil; never negative)
+      const reps = (cycle) => Math.max(0, Math.floor(TOTAL / cycle) - 1);
+
+      /* ---------- persistent base + HUD ---------- */
+      tl.from("#hud-brand", { y: -30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.15);
+      tl.from("#hud-reel", { y: -30, opacity: 0, duration: 0.6, ease: "power2.out" }, 0.25);
+      tl.from(["#hud-c1", "#hud-c2", "#hud-c3", "#hud-c4"], { scale: 0, opacity: 0, duration: 0.5, ease: "back.out(2)", stagger: 0.08 }, 0.1);
+      tl.to("#base-glow", { opacity: 0.6, duration: 2.0, ease: "sine.inOut", yoyo: true, repeat: reps(2.0) }, 0);
+
+      /* ---------- scene 1 (0 – 3.6) ---------- */
+      tl.from("#s1-bg", { scale: 1.1, duration: 3.6, ease: "none" }, 0);
+      tl.from("#s1-ghost", { x: 120, opacity: 0, duration: 1.4, ease: "power2.out" }, 0.1);
+      tl.from("#s1-kicker", { x: -60, opacity: 0, duration: 0.55, ease: "power3.out" }, 0.25);
+      tl.from("#s1-rule", { scaleX: 0, duration: 0.5, ease: "power3.inOut" }, 0.4);
+      tl.from("#s1-h1", { y: 70, opacity: 0, duration: 0.75, ease: "power4.out" }, 0.5);
+      tl.from("#s1-sub", { y: 44, opacity: 0, duration: 0.6, ease: "power3.out" }, 0.85);
+      tl.from("#s1-chip", { x: -80, opacity: 0, duration: 0.55, ease: "back.out(1.6)" }, 1.05);
+      tl.from("#s1-index", { opacity: 0, duration: 0.6, ease: "power1.out" }, 1.1);
+      tl.to("#s1-glow", { opacity: 0.55, duration: 1.8, ease: "sine.inOut", yoyo: true, repeat: 1 }, 0);
+
+      /* ---------- scene 2 (3.6 – 7.2) ---------- */
+      const S2 = 3.6;
+      tl.from("#s2-ghost", { y: -90, opacity: 0, duration: 1.1, ease: "power2.out" }, S2 + 0.05);
+      tl.from("#s2-kicker", { x: -60, opacity: 0, duration: 0.5, ease: "power3.out" }, S2 + 0.1);
+      tl.from("#s2-h2", { y: 60, opacity: 0, duration: 0.65, ease: "power4.out" }, S2 + 0.2);
+      tl.from(["#s2-svc1", "#s2-svc2", "#s2-svc3", "#s2-svc4", "#s2-svc5"], { x: -70, opacity: 0, duration: 0.5, ease: "power3.out", stagger: 0.11 }, S2 + 0.4);
+      tl.from("#s2-divider", { scaleY: 0, duration: 0.7, ease: "power3.inOut" }, S2 + 0.3);
+      tl.from("#s2-photo1", { x: 140, opacity: 0, duration: 0.7, ease: "power3.out" }, S2 + 0.35);
+      tl.from("#s2-photo2", { y: 120, opacity: 0, duration: 0.7, ease: "power3.out" }, S2 + 0.55);
+      tl.from("#s2-photo1-img", { scale: 1.15, duration: 3.2, ease: "none" }, S2 + 0.35);
+      tl.from("#s2-photo2-img", { scale: 1.12, duration: 3.0, ease: "none" }, S2 + 0.55);
+      tl.from("#s2-cap", { opacity: 0, duration: 0.5, ease: "power1.out" }, S2 + 1.0);
+
+      /* ---------- scene 3 (7.2 – 10.6) ---------- */
+      const S3 = 7.2;
+      tl.from("#s3-bg", { scale: 1.1, x: -50, duration: 3.4, ease: "none" }, S3);
+      tl.from("#s3-ghost", { x: 100, opacity: 0, duration: 1.1, ease: "power2.out" }, S3 + 0.05);
+      tl.from("#s3-kicker", { x: -60, opacity: 0, duration: 0.5, ease: "power3.out" }, S3 + 0.1);
+      tl.from("#s3-h2", { y: 64, opacity: 0, duration: 0.7, ease: "power4.out" }, S3 + 0.2);
+      tl.from("#s3-svc1", { x: -90, opacity: 0, duration: 0.55, ease: "power3.out" }, S3 + 0.5);
+      tl.from("#s3-svc2", { x: -90, opacity: 0, duration: 0.55, ease: "power3.out" }, S3 + 0.68);
+      tl.from(["#s3-node1", "#s3-node2", "#s3-node3"], { scale: 0, opacity: 0, duration: 0.45, ease: "back.out(2.4)", stagger: 0.14 }, S3 + 0.6);
+      tl.to("#s3-node1", { scale: 1.5, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 3 }, S3 + 1.1);
+      tl.from("#s3-index", { opacity: 0, duration: 0.5, ease: "power1.out" }, S3 + 0.9);
+
+      /* ---------- scene 4 (10.6 – 13.4) ---------- */
+      const S4 = 10.6;
+      tl.from("#s4-ghost", { y: -90, opacity: 0, duration: 1.0, ease: "power2.out" }, S4 + 0.05);
+      tl.from("#s4-photo1", { x: -150, opacity: 0, duration: 0.7, ease: "power3.out" }, S4 + 0.1);
+      tl.from("#s4-photo2", { y: 130, opacity: 0, duration: 0.7, ease: "power3.out" }, S4 + 0.3);
+      tl.from("#s4-photo1-img", { scale: 1.14, duration: 2.6, ease: "none" }, S4 + 0.1);
+      tl.from("#s4-photo2-img", { scale: 1.1, duration: 2.4, ease: "none" }, S4 + 0.3);
+      tl.from("#s4-kicker", { x: 60, opacity: 0, duration: 0.5, ease: "power3.out" }, S4 + 0.15);
+      tl.from("#s4-h2", { y: 60, opacity: 0, duration: 0.65, ease: "power4.out" }, S4 + 0.25);
+      tl.from(["#s4-svc1", "#s4-svc2"], { x: 80, opacity: 0, duration: 0.55, ease: "power3.out", stagger: 0.15 }, S4 + 0.5);
+      tl.from("#s4-bars > span", { scaleY: 0, transformOrigin: "bottom center", duration: 0.5, ease: "power3.out", stagger: 0.08 }, S4 + 0.8);
+      tl.from("#s4-cap", { opacity: 0, duration: 0.5, ease: "power1.out" }, S4 + 1.0);
+
+      /* ---------- scene 5 (13.4 – 16.5) ---------- */
+      const S5 = 13.4;
+      tl.from("#s5-mark", { scale: 0.4, opacity: 0, rotation: -8, duration: 0.7, ease: "back.out(1.8)" }, S5 + 0.15);
+      tl.from("#s5-word", { y: 60, opacity: 0, duration: 0.7, ease: "power4.out" }, S5 + 0.4);
+      tl.from("#s5-subword", { y: 34, opacity: 0, duration: 0.6, ease: "power3.out" }, S5 + 0.6);
+      tl.from("#s5-rule", { scaleX: 0, duration: 0.55, ease: "power3.inOut" }, S5 + 0.85);
+      tl.from("#s5-tagline", { y: 30, opacity: 0, duration: 0.7, ease: "power3.out" }, S5 + 1.05);
+      tl.from("#s5-foot", { opacity: 0, duration: 0.6, ease: "power1.out" }, S5 + 1.4);
+      tl.to("#s5-mark", { scale: 1.04, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 1 }, S5 + 1.2);
+
+      window.__timelines["imperium-sizzle"] = tl;
+    </script>
+  </body>
+</html>
