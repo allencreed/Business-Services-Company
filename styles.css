@@ -2128,3 +2128,50 @@ ul {
     object-fit: cover;
     z-index: 0;
 }
+
+/* --- Sizzle reel section (text left, video right) --- */
+.reel-section {
+    padding: 90px 0;
+    background: #f5f7fa;
+}
+.reel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.reel-text .section-label {
+    color: var(--secondary);
+}
+.reel-text h2 {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 2.4rem;
+    color: var(--primary);
+    margin: 12px 0 18px;
+    line-height: 1.15;
+}
+.reel-text p {
+    font-size: 1.05rem;
+    color: var(--gray);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+.reel-video {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(17, 46, 81, 0.18);
+}
+.reel-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+@media (max-width: 768px) {
+    .reel-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    .reel-text h2 { font-size: 1.9rem; }
+}
